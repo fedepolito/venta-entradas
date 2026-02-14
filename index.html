@@ -3,195 +3,412 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entradas Online</title>
+  <meta name="description" content="Venta de entradas para conciertos y eventos en vivo">
+  <title>Entradas Online | Compra tus entradas aquí</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5.3.6 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Estilos personalizados -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
 </head>
-<body>
+<body class="bg-gradient-primary">
 
-<header class="bg-dark text-white py-3">
-  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-    <div class="logo-y-titulo d-flex align-items-center gap-3">
-      <img src="images/sodastereo.png" alt="Logo Soda Stereo" class="logo" width="60">
-      <h1 class="h4 m-0">Entradas Online!</h1>
+  <!-- Header con animación -->
+  <header class="header-gradient py-3">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <!-- Logo y título -->
+        <div class="logo-section d-flex align-items-center gap-3">
+          <div class="logo-container">
+            <img src="images/sodastereo.png" alt="Logo Soda Stereo" class="logo-img" loading="lazy">
+          </div>
+          <div>
+            <h1 class="logo-title mb-0">Entradas Online</h1>
+            <p class="logo-subtitle mb-0">Los mejores conciertos en un solo lugar</p>
+          </div>
+        </div>
+
+        <!-- Botón hamburguesa para móvil -->
+        <button class="menu-toggle d-md-none btn p-0 border-0 bg-transparent text-white" 
+                aria-label="Abrir menú" id="menuToggle">
+          <i class="fas fa-bars fa-2x"></i>
+        </button>
+
+        <!-- Menú de navegación -->
+        <nav class="navbar-menu d-none d-md-flex">
+          <ul class="nav justify-content-center gap-3">
+            <li class="nav-item"><a href="#registro" class="nav-link nav-custom">Registro</a></li>
+            <li class="nav-item"><a href="#clientes" class="nav-link nav-custom">Comentarios</a></li>
+            <li class="nav-item"><a href="#fechas" class="nav-link nav-custom">Fechas</a></li>
+            <li class="nav-item"><a href="#footer" class="nav-link nav-custom">Contacto</a></li>
+            <li class="nav-item">
+              <a href="https://ticketek.com.ar" class="nav-link nav-custom btn-ticketek" 
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-ticket-alt me-1"></i> Ticketek
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
+  </header>
 
-    <!-- boton hamburguesa para celular -->
-    <button class="menu-toggle d-md-none btn p-0 border-0 bg-transparent text-white" aria-label="Abrir menú">
-      ☰
-    </button>
-
-    <!-- menu horizontal para escritorio -->
-    <nav class="navbar-menu d-none d-md-flex">
-      <ul class="nav justify-content-center">
+  <!-- Menú móvil desplegable -->
+  <div class="mobile-menu d-md-none" id="mobileMenu">
+    <div class="mobile-menu-content bg-dark p-3">
+      <ul class="nav flex-column gap-2">
         <li class="nav-item"><a href="#registro" class="nav-link text-white">Registro</a></li>
         <li class="nav-item"><a href="#clientes" class="nav-link text-white">Comentarios</a></li>
         <li class="nav-item"><a href="#fechas" class="nav-link text-white">Fechas</a></li>
         <li class="nav-item"><a href="#footer" class="nav-link text-white">Contacto</a></li>
-        <li class="nav-item"><a href="https://ticketek.com.ar" class="nav-link text-white" target="_blank" rel="noopener noreferrer">Ticketek</a></li>
+        <li class="nav-item">
+          <a href="https://ticketek.com.ar" class="nav-link text-white btn-ticketek" 
+             target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-ticket-alt me-1"></i> Ticketek
+          </a>
+        </li>
       </ul>
-    </nav>
+    </div>
   </div>
-</header>
 
-<!-- menu desplegable para celular -->
-<div class="mobile-menu d-md-none">
-  <ul class="nav flex-column px-3 py-2 bg-secondary text-white">
-    <li class="nav-item"><a href="#registro" class="nav-link text-white">Registro</a></li>
-    <li class="nav-item"><a href="#clientes" class="nav-link text-white">Comentarios</a></li>
-    <li class="nav-item"><a href="#fechas" class="nav-link text-white">Fechas</a></li>
-    <li class="nav-item"><a href="#footer" class="nav-link text-white">Contacto</a></li>
-    <li class="nav-item"><a href="https://ticketek.com.ar" class="nav-link text-white" target="_blank" rel="noopener noreferrer">Ticketek</a></li>
-  </ul>
-</div>
-
-<div class="container my-4">
-  <form class="d-flex flex-column flex-md-row gap-2 justify-content-center">
-    <input type="text" name="buscar" class="form-control" placeholder="Buscar banda..." required>
-    <button type="submit" class="btn btn-primary">Buscar</button>
-  </form>
-</div>
-
-<main class="container my-4">
-  <section class="text-center mb-5">
-    <h2>Venta de entradas</h2>
-    <p class="fw-bold text-dark">¡Aprovechá y sacá tus entradas para la gira mundial de tu banda favorita!</p>
-    <p>Soda Stereo va a estar en el Luna Park y no te lo podés perder.</p>
-  </section>
-
-  <section class="mb-5">
-    <h4 class="text-center mb-4">Bandas destacadas</h4>
-    <div class="bandas-imgs d-flex flex-wrap justify-content-center gap-3">
-      <img src="images/cjs.png" alt="Callejeros" class="img-fluid" style="max-width: 120px;">
-      <img src="images/lospiojos.png" alt="Los Piojos" class="img-fluid" style="max-width: 120px;">
-      <img src="images/PR.png" alt="Los Redondos" class="img-fluid" style="max-width: 120px;">
+  <!-- Barra de búsqueda -->
+  <div class="container my-4">
+    <div class="search-container">
+      <form class="d-flex flex-column flex-md-row gap-2 justify-content-center" id="searchForm">
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" name="buscar" class="form-control search-input" 
+                 placeholder="Buscar banda o artista..." required>
+        </div>
+        <button type="submit" class="btn btn-search">
+          <i class="fas fa-search me-1"></i> Buscar
+        </button>
+      </form>
     </div>
-  </section>
+  </div>
 
-  <section id="fechas" class="bg-light p-4 rounded mb-5">
-    <h4 class="text-center mb-4">Próximas fechas y horarios</h4>
-    <div class="row g-4">
-      <div class="col-12 col-md-6">
-        <table class="table table-bordered table-hover text-center">
-          <thead class="table-secondary">
-            <tr><th>Fecha</th><th>Hora</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>23/5/2025</td><td>19:30</td></tr>
-            <tr><td>24/5/2025</td><td>20:45</td></tr>
-            <tr><td>25/5/2025</td><td>21:15</td></tr>
-          </tbody>
-        </table>
+  <main class="container my-5">
+    <!-- Hero section -->
+    <section class="hero-section text-center mb-5">
+      <div class="hero-content">
+        <h2 class="hero-title">🎟️ Venta de Entradas</h2>
+        <p class="hero-subtitle fw-bold">
+          ¡Aprovechá y sacá tus entradas para la gira mundial de tu banda favorita!
+        </p>
+        <p class="hero-description">
+          Soda Stereo va a estar en el Luna Park y no te lo podés perder.
+        </p>
+        <div class="hero-badge">
+          <i class="fas fa-star"></i> Eventos exclusivos
+          <i class="fas fa-star"></i> Precios accesibles
+          <i class="fas fa-star"></i> Compra segura
+        </div>
       </div>
-      <div class="col-12 col-md-6">
-        <form method="POST" action="comprar.php" class="d-grid gap-3">
-          <label for="fecha" class="fw-bold text-center">Elegí la fecha del concierto:</label>
-          <input type="date" id="fecha" name="fecha" class="form-control" required>
-          <button type="submit" class="btn btn-success">Comprar</button>
-        </form>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="registro" class="my-5">
-    <div class="row g-4">
-      <div class="col-12 col-md-6 bg-light p-4 rounded">
-        <h3 class="text-center mb-4">Registro</h3>
-        <form id="formRegistro" class="d-grid gap-3">
-          <input type="email" id="email" name="email" class="form-control" placeholder="Email" required maxlength="50">
-          <input type="number" id="dni" name="dni" class="form-control" placeholder="DNI" required min="1000000" max="99999999">
-          <input type="number" id="edad" name="edad" class="form-control" placeholder="Edad" required min="18" max="120">
-          <input type="date" id="nacimiento" name="nacimiento" class="form-control" required>
-          <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required minlength="6" maxlength="16">
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="acepto" required>
-            <label class="form-check-label">Acepto los <a href="#" tabindex="0">términos y condiciones</a></label>
+    <!-- Bandas destacadas -->
+    <section class="mb-5">
+      <h3 class="section-title text-center mb-4">
+        <i class="fas fa-music me-2"></i>Bandas Destacadas
+      </h3>
+      <div class="bandas-container">
+        <div class="bandas-imgs d-flex flex-wrap justify-content-center gap-4">
+          <div class="banda-card">
+            <img src="images/cjs.png" alt="Callejeros" class="banda-img" loading="lazy">
+            <p class="banda-name">Callejeros</p>
           </div>
-          <button type="submit" class="btn btn-dark w-100">Registrarme</button>
-        </form>
-        <div id="usuarios-registrados" class="mt-4"></div>
+          <div class="banda-card">
+            <img src="images/lospiojos.png" alt="Los Piojos" class="banda-img" loading="lazy">
+            <p class="banda-name">Los Piojos</p>
+          </div>
+          <div class="banda-card">
+            <img src="images/PR.png" alt="Los Redondos" class="banda-img" loading="lazy">
+            <p class="banda-name">Los Redondos</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div id="clientes" class="col-12 col-md-6 bg-light p-4 rounded">
-        <h3 class="text-center mb-4">Comentarios de clientes</h3>
-        <table class="table table-bordered table-hover">
-          <thead class="table-secondary text-center">
-            <tr>
-              <th>Nombre</th>
-              <th>Fecha</th>
-              <th>Comentario</th>
-              <th>Puntuación</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>María</td><td>20/05/2025</td><td>¡Excelente experiencia!</td><td>5⭐</td></tr>
-            <tr><td>Carlos</td><td>19/05/2025</td><td>Muy fácil de comprar.</td><td>4⭐</td></tr>
-            <tr><td>Lucía</td><td>17/05/2025</td><td>Recomiendo la página.</td><td>5⭐</td></tr>
-          </tbody>
-        </table>
+    <!-- Fechas y horarios -->
+    <section id="fechas" class="section-bg p-4 rounded-4 mb-5">
+      <h3 class="section-title text-center mb-4">
+        <i class="fas fa-calendar-alt me-2"></i>Próximas Fechas
+      </h3>
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="calendar-card p-4">
+            <h5 class="text-center mb-3"><i class="fas fa-clock me-2"></i>Horarios</h5>
+            <table class="table table-schedule">
+              <thead class="table-header">
+                <tr>
+                  <th><i class="fas fa-calendar"></i> Fecha</th>
+                  <th><i class="fas fa-clock"></i> Hora</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>23/5/2025</td><td>19:30</td></tr>
+                <tr><td>24/5/2025</td><td>20:45</td></tr>
+                <tr><td>25/5/2025</td><td>21:15</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="booking-card p-4">
+            <h5 class="text-center mb-3"><i class="fas fa-ticket-alt me-2"></i>Comprar Entradas</h5>
+            <form method="POST" action="comprar.php" class="d-grid gap-3">
+              <label for="fecha" class="form-label fw-bold">Elegí la fecha del concierto:</label>
+              <input type="date" id="fecha" name="fecha" class="form-control input-custom" required>
+              <button type="submit" class="btn btn-primary btn-lg w-100">
+                <i class="fas fa-shopping-cart me-2"></i>Comprar Entradas
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<footer id="footer" class="bg-dark text-white py-4">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-12 col-md-4 footer-col">
-        <img src="images/sodastereo.png" alt="Logo Soda Stereo" width="60" class="mb-2">
-        <p>Entradas Online - Tu sitio seguro para ver las mejores bandas.</p>
+    <!-- Registro y Comentarios -->
+    <section id="registro" class="my-5">
+      <div class="row g-4">
+        <!-- Formulario de registro -->
+        <div class="col-12 col-md-6">
+          <div class="card card-custom p-4">
+            <div class="card-header text-center mb-4">
+              <h3 class="mb-0"><i class="fas fa-user-plus me-2"></i>Registro</h3>
+              <p class="text-muted mb-0">¡Únete a nuestra comunidad!</p>
+            </div>
+            <form id="formRegistro" class="d-grid gap-3">
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control input-custom" 
+                       placeholder="tuemail@gmail.com" required maxlength="50">
+              </div>
+              <div class="form-group">
+                <label for="dni" class="form-label">DNI</label>
+                <input type="number" id="dni" name="dni" class="form-control input-custom" 
+                       placeholder="12345678" required min="1000000" max="99999999">
+              </div>
+              <div class="form-group">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" id="edad" name="edad" class="form-control input-custom" 
+                       placeholder="18" required min="18" max="120">
+              </div>
+              <div class="form-group">
+                <label for="nacimiento" class="form-label">Fecha de nacimiento</label>
+                <input type="date" id="nacimiento" name="nacimiento" class="form-control input-custom" required>
+              </div>
+              <div class="form-group">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" id="password" name="password" class="form-control input-custom" 
+                       placeholder="Mínimo 6 caracteres" required minlength="6" maxlength="16">
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="acepto" name="acepto" required>
+                <label class="form-check-label" for="acepto">
+                  Acepto los <a href="#" class="link-terms" tabindex="0">términos y condiciones</a>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-register w-100">
+                <i class="fas fa-user-check me-2"></i>Registrarme
+              </button>
+            </form>
+            <div id="usuarios-registrados" class="mt-4"></div>
+          </div>
+        </div>
+
+        <!-- Comentarios de clientes -->
+        <div id="clientes" class="col-12 col-md-6">
+          <div class="card card-custom p-4">
+            <div class="card-header text-center mb-4">
+              <h3 class="mb-0"><i class="fas fa-comments me-2"></i>Comentarios</h3>
+              <p class="text-muted mb-0">Lo que dicen nuestros clientes</p>
+            </div>
+            <div class="testimonials-container">
+              <table class="table table-testimonials">
+                <thead class="table-header text-center">
+                  <tr>
+                    <th><i class="fas fa-user"></i> Nombre</th>
+                    <th><i class="fas fa-calendar"></i> Fecha</th>
+                    <th><i class="fas fa-comment"></i> Comentario</th>
+                    <th><i class="fas fa-star"></i> Puntuación</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>María</td><td>20/05/2025</td><td>Excelente experiencia</td><td>⭐⭐⭐⭐⭐</td></tr>
+                  <tr><td>Carlos</td><td>19/05/2025</td><td>Muy fácil de comprar</td><td>⭐⭐⭐⭐</td></tr>
+                  <tr><td>Lucía</td><td>17/05/2025</td><td>Recomiendo la página</td><td>⭐⭐⭐⭐⭐</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer-gradient py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-4 footer-col">
+          <div class="footer-logo mb-3">
+            <img src="images/sodastereo.png" alt="Logo Soda Stereo" width="60" class="mb-2">
+            <h4 class="footer-title">Entradas Online</h4>
+          </div>
+          <p class="footer-text">
+            Tu sitio seguro para ver las mejores bandas en vivo.
+            <br>Compra tus entradas con confianza.
+          </p>
+          <div class="social-links mt-3">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-12 col-md-4 footer-col">
+          <h5 class="footer-subtitle mb-3"><i class="fas fa-clock me-2"></i>Horario y dirección</h5>
+          <p class="footer-text">
+            <i class="fas fa-calendar me-2"></i>Lunes a Viernes: 10 a 18 hs
+          </p>
+          <p class="footer-text">
+            <i class="fas fa-map-marker-alt me-2"></i>Ituzaingó 1234, Buenos Aires
+          </p>
+          <p class="footer-text">
+            <i class="fas fa-phone me-2"></i>+54 11 1234-5678
+          </p>
+        </div>
+        
+        <div class="col-12 col-md-4 footer-col">
+          <h5 class="footer-subtitle mb-3"><i class="fas fa-envelope me-2"></i>Recibí ofertas</h5>
+          <p class="footer-text">Suscríbete para recibir ofertas exclusivas</p>
+          <form method="POST" action="suscribir.php" class="d-grid gap-2">
+            <div class="input-group">
+              <input type="email" name="email_ofertas" class="form-control input-newsletter" 
+                     placeholder="Tu email" required>
+              <button type="submit" class="btn btn-newsletter">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
       
-      <div class="col-12 col-md-4 footer-col">
-        <h5 class="mb-3">Horario y dirección</h5>
-        <p>Lunes a Viernes: 10 a 18 hs</p>
-        <p>Ituzaingo 1234, Buenos Aires</p>
-      </div>
-      
-      <div class="col-12 col-md-4 footer-col">
-        <h5 class="mb-3">Recibí ofertas</h5>
-        <form method="POST" action="suscribir.php" class="d-grid gap-2">
-          <input type="email" name="email_ofertas" class="form-control" placeholder="Tu email" required>
-          <button type="submit" class="btn btn-light text-dark fw-bold">Suscribirme</button>
-        </form>
+      <div class="footer-bottom mt-5 pt-4 border-top">
+        <p class="mb-0 text-center text-muted">
+          © 2026 Entradas Online - Todos los derechos reservados
+        </p>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  //mostrar y ocultar menu en celular
-  document.querySelector('.menu-toggle').addEventListener('click', function() {
-    document.querySelector('.mobile-menu').classList.toggle('show');
-  });
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Menú hamburguesa
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function() {
+          mobileMenu.classList.toggle('show');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        const navLinks = mobileMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('show');
+          });
+        });
+      }
+    });
 
-  document.querySelector('#formRegistro').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const data = {
-      email: document.getElementById('email').value,
-      dni: document.getElementById('dni').value,
-      edad: document.getElementById('edad').value,
-      nacimiento: document.getElementById('nacimiento').value,
-      password: document.getElementById('password').value
-    };
-    fetch('./api/registrar_usuario.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-        if (result.success) {
-            alert('Registro exitoso');
-            cargarUsuarios();
-            document.getElementById('formRegistro').reset();
-        } else {
-            alert('Error en el registro: ' + result.message);
-        }
-    })
-    .catch(error => console.error('Error:', error));
-  });
-</script>
+    // Formulario de registro
+    document.addEventListener('DOMContentLoaded', function() {
+      const formRegistro = document.getElementById('formRegistro');
+      
+      if (formRegistro) {
+        formRegistro.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const data = {
+            email: document.getElementById('email').value,
+            dni: document.getElementById('dni').value,
+            edad: document.getElementById('edad').value,
+            nacimiento: document.getElementById('nacimiento').value,
+            password: document.getElementById('password').value
+          };
+          
+          // Validación básica
+          if (!data.email || !data.dni || !data.password) {
+            alert('Por favor completa todos los campos obligatorios');
+            return;
+          }
+          
+          // Mostrar mensaje de carga
+          const submitBtn = formRegistro.querySelector('button[type="submit"]');
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Registrando...';
+          submitBtn.disabled = true;
+          
+          fetch('./api/registrar_usuario.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then(result => {
+            if (result.success) {
+              alert('¡Registro exitoso! Bienvenido a Entradas Online');
+              formRegistro.reset();
+              // cargarUsuarios(); // Descomentar si tienes esta función
+            } else {
+              alert('Error en el registro: ' + (result.message || 'Inténtalo nuevamente'));
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('Error al registrar: ' + error.message);
+          })
+          .finally(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+          });
+        });
+      }
+    });
 
+    // Formulario de búsqueda
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchForm = document.getElementById('searchForm');
+      
+      if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const searchTerm = this.querySelector('input[name="buscar"]').value;
+          if (searchTerm.trim()) {
+            alert(`Buscando: ${searchTerm}`);
+            // Aquí iría la lógica de búsqueda
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
