@@ -1,4 +1,4 @@
-# Entradas Online - Sistema de Venta de Entradas
+## Entradas Online - Sistema de Venta de Entradas
 
 Sistema web completo para la venta de entradas de conciertos y eventos en vivo, desarrollado con HTML, CSS, JavaScript, PHP y MySQL.
 
@@ -34,7 +34,7 @@ Sistema web completo para la venta de entradas de conciertos y eventos en vivo, 
 - Symfony Framework (opcional)
 
 
-## 🚀 Instalación
+## Instalación
 
 ### Requisitos previos
 - PHP 8.1 o superior
