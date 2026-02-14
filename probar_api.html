@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Probar API - Usuarios</title>
+</head>
+<body>
+  <h2>Buscar usuarios por email</h2>
+  <input type="text" id="filtro" placeholder="ej: fedepolito@gmail.com">
+  <button onclick="buscar()">Buscar</button>
+  <pre id="resultado"></pre>
+
+  <script>
+    function buscar() {
+      const email = document.getElementById("filtro").value;
+      fetch(`http://localhost/trabajo_practico3/api/servicios/usuarios.php?email=${encodeURIComponent(email)}`)
+        .then(res => {
+          if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          return res.json();
+        })
+        .then(data => {
+          document.getElementById("resultado").textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          document.getElementById("resultado").textContent = `Error: ${error.message}`;
+        });
+    }
+  </script>
+</body>
+</html>

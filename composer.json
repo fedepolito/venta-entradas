@@ -1,0 +1,13 @@
+{
+  "name": "federico/entradas-online",
+  "type": "project",
+  "require": {
+    "php": "^8.1",
+    "symfony/framework-bundle": "^6.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}

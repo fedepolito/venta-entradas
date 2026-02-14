@@ -1,0 +1,3 @@
+api_ping:
+  path: /api/ping
+  controller: App\Controller\ApiController::ping

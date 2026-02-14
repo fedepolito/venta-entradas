@@ -1,0 +1,221 @@
+/* mobile first */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #222;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input, button, textarea, select {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.logo {
+  width: 60px;
+}
+
+/* imagen de bandas destacadas en celular */
+.bandas-imgs {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+  overflow-x: auto;
+  justify-content: center;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.bandas-imgs::-webkit-scrollbar {
+  height: 6px;
+}
+
+.bandas-imgs::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.bandas-imgs::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.bandas-imgs img {
+  width: 100px;
+  min-width: 100px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.bandas-imgs img:hover {
+  transform: scale(1.05);
+}
+
+/* tablet */
+@media (min-width: 768px) {
+  .bandas-imgs {
+    grid-template-columns: repeat(2, 100px); /* 2 columnas */
+    overflow-x: unset;
+    justify-content: center;
+  }
+
+  .bandas-imgs img {
+    width: 100px;
+  }
+}
+
+/* escritorio con 3 columnas */
+@media (min-width: 1024px) {
+  .bandas-imgs {
+    grid-template-columns: repeat(3, 120px); /* 3 columnas mas grandes */
+    gap: 1.5rem;
+  }
+
+  .bandas-imgs img {
+    width: 120px;
+  }
+}
+
+/* header y menu para mobile first*/
+header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.navbar-menu {
+  display: none; /* ocultar en celular */
+}
+
+/* boton hamburguesa en celular */
+.menu-toggle {
+  display: block; 
+  margin-top: 0.5rem;
+}
+
+/*tablet y desktop */
+@media (min-width: 768px) {
+  header .container {
+    flex-direction: row;
+    align-items: center;
+    text-align: start;
+  }
+
+  .menu-toggle {
+    display: none; /* ocultar el boton */
+  }
+
+  .navbar-menu {
+    display: flex !important; /* mostrar menu */
+  }
+}
+
+/* menu desplegable en el celular */
+.mobile-menu {
+  display: none;
+  background-color: #343a40;
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+}
+
+.mobile-menu.show {
+  display: block;
+}
+
+.mobile-menu .nav-link {
+  color: white !important;
+  padding: 0.75rem 1rem;
+  display: block;
+}
+
+/* footer */
+footer .footer-col {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  footer .footer-col {
+    text-align: start;
+  }
+}
+
+/* estilos generales */
+header h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li a {
+  font-weight: bold;
+  text-align: center;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+nav li a:hover {
+  background: rgba(255,255,255,0.2);
+  color: #b9d6e6;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #dee2e6;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+th {
+  background-color: #b9d6e6 !important;
+}
+
+footer h5 {
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+footer button:hover {
+  background: #fff;
+  color: #222;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+.form-control {
+  border-radius: 0.375rem;
+}
+
+form.check label a {
+  color: #0d6efd;
+  text-decoration: underline;
+}
